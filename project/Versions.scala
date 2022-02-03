@@ -5,8 +5,6 @@ object Versions {
   val scala2Versions            = List(scala212, scala213)
   val allScalaVersions          = List(scala212, scala213, scala3)
   val ZioVersion                = "1.0.13"
-  val CaffeineCacheVersion      = "2.9.0"
+  val CaffeineCacheVersion      = "3.0.5"
   val ScalaJdkConversionVersion = "2.6.0"
-  val Sl4jVersion               = "1.7.32"
-  val LogbackVersion            = "1.2.10"
 }
