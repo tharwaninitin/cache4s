@@ -28,18 +28,26 @@ object CacheTestSuite extends DefaultRunnableSpec {
         val size = cache.toMap.size
         assertTrue(size == 1)
       },
-      test("getStats should return the map with detials of underlying cache") {
+      test("getStats should return the map with details of underlying cache") {
         val op = cache.getStats
-        val expected =
-          Map(
-            "size"         -> "1",
-            "missCount"    -> "2",
-            "hitCount"     -> "1",
-            "requestCount" -> "3",
-            "missRate"     -> "0.6666666666666666",
-            "hitRate"      -> "0.3333333333333333"
-          )
+        val expected = Map(
+          "size"         -> "1",
+          "missCount"    -> "2",
+          "hitCount"     -> "1",
+          "requestCount" -> "3",
+          "missRate"     -> "0.6666666666666666",
+          "hitRate"      -> "0.3333333333333333"
+        )
         assertTrue(op == expected)
+      },
+      test("getValues should return the list with values of underlying cache") {
+        val op       = cache.getValues
+        val expected = List("123")
+        assertTrue(op == expected)
+      },
+      test("Value should be deleted from underlying cache") {
+        cache.remove("key3")
+        assertCompletes
       }
     ) @@ TestAspect.sequential
 }

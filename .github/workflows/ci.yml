@@ -8,15 +8,13 @@ jobs:
         java-version: [11, 16]
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
+    - name: Set up JDK
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: ${{ matrix.java-version }}
-    - name: Run test with coverage
-      run: sbt coverage test
-    - name: Coverage Report
-      run: sbt coverageReport
+    - name: Run test with coverageReport
+      run: sbt test coverageReport
     - name: Upload coverage to Codecov
       uses: "codecov/codecov-action@v1"
       with:

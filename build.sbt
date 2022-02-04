@@ -17,6 +17,10 @@ lazy val cache4s = (project in file("."))
         case _             => Seq()
       }
     },
-    Test / parallelExecution := false,
+    Test / parallelExecution   := false,
+    coverageEnabled            := true,
+    coverageFailOnMinimum      := true,
+    coverageMinimumStmtTotal   := 100,
+    coverageMinimumBranchTotal := 100,
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
   )
